@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-list *ngFor="let x of items;let i = index"> 
+      <ion-radio-group value="{{x.id}}">
+        <p>Select a value from the given range </p>
+        <ion-item>
+          <ion-badge color="light">{{itemValue[i]}}</ion-badge>
+          <ion-range min="{{x.start}}" max="{{x.end}}" step="1" pin="true" snaps="true" ticks="true" [(ngModel)]="itemValue[i]">
+            <ion-label slot="start">{{x.start}}</ion-label>
+            <ion-label slot="end">{{x.end}}</ion-label>
+          </ion-range>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+</ion-content>
